@@ -1,0 +1,319 @@
+/* ==========================================================================
+   1. 基礎設定與變數 (採用 Google Noto Sans TC、灰黑高質感對比色調)
+   ========================================================================== */
+:root {
+    --bg-dark: #121212;        /* 深色主背景 */
+    --bg-surface: #1e1e1e;     /* 卡片、導覽列背景 */
+    --bg-alt: #1a1a1a;         /* 交錯區塊背景 */
+    --text-primary: #f5f5f5;   /* 主文字顏色 (高對比) */
+    --text-secondary: #b3b3b3; /* 次要文字顏色 */
+    --accent: #d4af37;         /* 質感金色 (點綴色) */
+    --line-height: 1.25;       /* 依規範設定行高 */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: var(--line-height);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.bg-alt {
+    background-color: var(--bg-alt);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   2. 導覽列 (Navigation)
+   ========================================================================== */
+nav {
+    background-color: var(--bg-surface);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.nav-container .logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+}
+
+.nav-container ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-container ul li {
+    margin-left: 20px;
+}
+
+.nav-container ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-container ul li a:hover {
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   3. 頁首與個人照片 (Header)
+   ========================================================================== */
+header {
+    padding-top: 130px;
+    padding-bottom: 60px;
+    background: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,1)), url('https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    text-align: center;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.contact-info a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   4. 關於我 (About)
+   ========================================================================== */
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   5. 時間軸樣式 - 學歷與經歷 (Timeline)
+   ========================================================================== */
+.timeline {
+    border-left: 2px solid var(--bg-surface);
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    border: 3px solid var(--bg-dark);
+}
+
+.time {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.timeline-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.timeline-item h4 {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.reflection {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    background-color: var(--bg-surface);
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid var(--accent);
+    text-align: justify;
+}
+
+/* ==========================================================================
+   6. 技能與興趣 (Skills & Interests Block)
+   ========================================================================== */
+.flex-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+    min-width: 280px;
+}
+
+.styled-list {
+    list-style: none;
+}
+
+.styled-list li {
+    background-color: var(--bg-surface);
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.styled-list li strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   7. 作品集卡片 (Portfolio Grid)
+   ========================================================================== */
+.portfolio-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.portfolio-card {
+    background-color: var(--bg-surface);
+    flex: 1;
+    min-width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-img-card {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: justify;
+}
+
+/* ==========================================================================
+   8. 頁尾 (Footer)
+   ========================================================================== */
+footer {
+    background-color: #0b0b0b;
+    text-align: center;
+    padding: 30px 0;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   9. 響應式網頁設計 (RWD 調整手機板)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-container ul li {
+        margin: 0 10px;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    .timeline {
+        margin-left: 5px;
+    }
+}
